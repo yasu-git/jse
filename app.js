@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
+var qiitaRouter = require('./routes/qiita');
 var usersRouter = require('./routes/users');
 //database.jsを追加
 const connectDB = require('./config/database');
@@ -25,6 +26,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/qiita', qiitaRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
